@@ -24,6 +24,10 @@
             font-size: 18px;
             color: red;
         }
+        #next-link {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +40,11 @@
     </div>
     <button onclick="checkCode()">Sblocca</button>
     <div id="message"></div>
+
+    <!-- Questo link sarà visibile solo quando il codice è corretto -->
+    <div id="next-link">
+        <a href="second.html">Vai alla prossima pagina</a>
+    </div>
 
     <script> 
         let correctCode = "2206";  // Il codice segreto
@@ -51,8 +60,11 @@
             if (enteredCode === correctCode) {
                 document.getElementById("message").style.color = "green";
                 document.getElementById("message").innerText = "Lucchetto sbloccato!";
-                // Puoi inserire qui il codice per passare al prossimo lucchetto
-                // Ad esempio, puoi cambiare il valore di 'correctCode' per il prossimo codice
+                
+                // Mostra il link alla pagina successiva
+                document.getElementById("next-link").style.display = "block";
+                
+                // Puoi cambiare il valore di 'correctCode' per il prossimo codice
                 correctCode = "5678";  // Cambia il codice per il prossimo lucchetto
             } else {
                 document.getElementById("message").style.color = "red";
