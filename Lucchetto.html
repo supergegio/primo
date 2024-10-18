@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucchetto a 4 Cifre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            width: 50px;
+            font-size: 24px;
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inserisci il codice segreto</h1>
+    <div>
+        <input type="number" id="digit1" maxlength="1">
+        <input type="number" id="digit2" maxlength="1">
+        <input type="number" id="digit3" maxlength="1">
+        <input type="number" id="digit4" maxlength="1">
+    </div>
+    <button onclick="checkCode()">Sblocca</button>
+    <div id="message"></div>
+
+    <script>
+        let correctCode = "1234";  // Il codice segreto
+
+        function checkCode() {
+            let digit1 = document.getElementById("digit1").value;
+            let digit2 = document.getElementById("digit2").value;
+            let digit3 = document.getElementById("digit3").value;
+            let digit4 = document.getElementById("digit4").value;
+
+            let enteredCode = digit1 + digit2 + digit3 + digit4;
+
+            if (enteredCode === correctCode) {
+                document.getElementById("message").style.color = "green";
+                document.getElementById("message").innerText = "Lucchetto sbloccato!";
+                // Puoi inserire qui il codice per passare al prossimo lucchetto
+                // Ad esempio, puoi cambiare il valore di 'correctCode' per il prossimo codice
+                correctCode = "5678";  // Cambia il codice per il prossimo lucchetto
+            } else {
+                document.getElementById("message").style.color = "red";
+                document.getElementById("message").innerText = "Codice errato. Riprova.";
+            }
+        }
+    </script>
+</body>
+</html>
